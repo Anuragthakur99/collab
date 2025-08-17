@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users/profile');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/users/profile');
       setUser(response.data);
     } catch (error) {
       localStorage.removeItem('token');
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const response = await axios.post('http://localhost:5000/api/auth/login', {
+    const response = await axios.post('https://collab-cgos.onrender.com/api/auth/login', {
       email,
       password
     });
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password, role) => {
-    const response = await axios.post('http://localhost:5000/api/auth/register', {
+    const response = await axios.post('https://collab-cgos.onrender.com/api/auth/register', {
       name,
       email,
       password,
