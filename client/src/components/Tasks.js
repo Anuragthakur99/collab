@@ -26,7 +26,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tasks/my-tasks');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/tasks/my-tasks');
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -35,7 +35,7 @@ const Tasks = () => {
 
   const updateTaskStatus = async (taskId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/tasks/${taskId}/status`, {
+      await axios.patch(`https://collab-cgos.onrender.com/api/tasks/${taskId}/status`, {
         status: newStatus
       });
       
