@@ -47,11 +47,21 @@ app.use('/api/admin', adminRoutes);
 
 // Serve static files from React build
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  const buildPath = path.join(__dirname, 'client/build');
   
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
+  // Check if build folder exists
+  const fs = require('fs');
+  if (fs.existsSync(buildPath)) {
+    app.use(express.static(buildPath));
+    
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(buildPath, 'index.html'));
+    });
+  } else {
+    app.get('*', (req, res) => {
+      res.json({ message: 'API is running. Frontend build not found.' });
+    });
+  }
 }
 
 // Socket.io connection
