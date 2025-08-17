@@ -20,9 +20,9 @@ const Dashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const [tasksRes, teamsRes, projectsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/tasks/my-tasks'),
-        axios.get('http://localhost:5000/api/teams'),
-        axios.get('http://localhost:5000/api/projects')
+        axios.get('https://collab-cgos.onrender.com/api/tasks/my-tasks'),
+        axios.get('https://collab-cgos.onrender.com/api/teams'),
+        axios.get('https://collab-cgos.onrender.com/api/projects')
       ]);
 
       const tasks = tasksRes.data;
