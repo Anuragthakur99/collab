@@ -44,7 +44,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/projects');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/projects');
       setProjects(response.data);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -53,7 +53,7 @@ const Projects = () => {
 
   const fetchTeams = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/teams');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/teams');
       setTeams(response.data);
     } catch (error) {
       console.error('Error fetching teams:', error);
@@ -62,7 +62,7 @@ const Projects = () => {
 
   const fetchProjectDetails = async (projectId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/projects/${projectId}`);
+      const response = await axios.get(`https://collab-cgos.onrender.com/api/projects/${projectId}`);
       setSelectedProject(response.data);
     } catch (error) {
       console.error('Error fetching project details:', error);
@@ -72,7 +72,7 @@ const Projects = () => {
   const handleCreateProject = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/projects', projectForm);
+      await axios.post('https://collab-cgos.onrender.com/api/projects', projectForm);
       setProjectForm({ name: '', description: '', teamId: '' });
       setShowCreateProject(false);
       fetchProjects();
@@ -84,7 +84,7 @@ const Projects = () => {
   const handleCreateTask = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/tasks', {
+      await axios.post('https://collab-cgos.onrender.com/api/tasks', {
         ...taskForm,
         projectId: selectedProject._id
       });
