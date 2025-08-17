@@ -1,0 +1,35 @@
+{
+  "name": "project-collaboration-tool",
+  "version": "1.0.0",
+  "description": "Full-stack project collaboration platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev:full": "concurrently \"npm run dev\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "mongoose": "^7.5.0",
+    "nodemailer": "^6.9.4",
+    "socket.io": "^4.7.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
