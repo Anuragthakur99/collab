@@ -20,7 +20,7 @@ const Teams = () => {
 
   const fetchTeams = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/teams');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/teams');
       setTeams(response.data);
     } catch (error) {
       console.error('Error fetching teams:', error);
@@ -29,7 +29,7 @@ const Teams = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const response = await axios.get('https://collab-cgos.onrender.com/api/users');
       setAllUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -39,7 +39,7 @@ const Teams = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/teams', formData);
+      await axios.post('https://collab-cgos.onrender.com/api/teams', formData);
       setFormData({ name: '', description: '', memberIds: [] });
       setShowCreateForm(false);
       fetchTeams();
