@@ -17,23 +17,23 @@ const AdminPanel = () => {
     try {
       switch (activeTab) {
         case 'users':
-          const usersRes = await axios.get('http://localhost:5000/api/admin/users');
+          const usersRes = await axios.get('https://collab-cgos.onrender.com/api/admin/users');
           setUsers(usersRes.data);
           break;
         case 'teams':
-          const teamsRes = await axios.get('http://localhost:5000/api/admin/teams');
+          const teamsRes = await axios.get('https://collab-cgos.onrender.com/api/admin/teams');
           setTeams(teamsRes.data);
           break;
         case 'projects':
-          const projectsRes = await axios.get('http://localhost:5000/api/admin/projects');
+          const projectsRes = await axios.get('https://collab-cgos.onrender.com/api/admin/projects');
           setProjects(projectsRes.data);
           break;
         case 'tasks':
-          const tasksRes = await axios.get('http://localhost:5000/api/admin/tasks');
+          const tasksRes = await axios.get('https://collab-cgos.onrender.com/api/admin/tasks');
           setTasks(tasksRes.data);
           break;
         case 'analytics':
-          const analyticsRes = await axios.get('http://localhost:5000/api/admin/analytics');
+          const analyticsRes = await axios.get('https://collab-cgos.onrender.com/api/admin/analytics');
           setAnalytics(analyticsRes.data);
           break;
       }
@@ -44,7 +44,7 @@ const AdminPanel = () => {
 
   const updateUserRole = async (userId, newRole) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/users/${userId}/role`, {
+      await axios.patch(`https://collab-cgos.onrender.com/api/admin/users/${userId}/role`, {
         role: newRole
       });
       fetchData();
@@ -57,7 +57,7 @@ const AdminPanel = () => {
     if (!window.confirm(`Are you sure you want to delete this ${type}?`)) return;
     
     try {
-      await axios.delete(`http://localhost:5000/api/admin/${type}/${id}`);
+      await axios.delete(`https://collab-cgos.onrender.com/api/admin/${type}/${id}`);
       fetchData();
     } catch (error) {
       console.error(`Error deleting ${type}:`, error);
