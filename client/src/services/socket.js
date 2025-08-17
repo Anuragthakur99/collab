@@ -6,7 +6,7 @@ class SocketService {
   }
 
   connect() {
-    this.socket = io('http://localhost:5000');
+    this.socket = io('https://collab-cgos.onrender.com');
     
     this.socket.on('connect', () => {
       console.log('Connected to server');
